@@ -1,13 +1,17 @@
-## 1.0.0
+## 1.0.4
 
-### 🎉 Initial release
+### 🎉 Initial release & Feature updates
 
 #### Country Picker Bottom Sheet
-* `showCountryBottomSheet(context, currentCountry, {...})` — modal bottom sheet using standard `BuildContext`, no `NavigatorKey` required.
+* Unified `KhatebCountryPicker` class for both single-pick and multi-pick.
+* `KhatebCountryPicker.show()` / `pickSingle()` for single country selection.
+* `KhatebCountryPicker.pickMultiple()` for selecting multiple countries with a checkbox and confirmation button.
 * Auto-detects app locale from `Localizations.localeOf(context)` — supported: `ar`, `en`, `tr`, fallback to English.
 * `flagShape` parameter: `FlagShape.circle` / `FlagShape.rectangle` / `FlagShape.rounded`.
 * `flagSize` parameter: control the flag image size in the list.
-* `titleStyle` and `searchHintStyle` — nullable `TextStyle` for full typography control.
+* `badgeColor` and `badgeSelectedColor` — fully customizable dial-code badge background.
+* `showCheckmark` (default `true`) — toggle the trailing checkmark icon for single-selection.
+* `titleStyle`, `searchHintStyle`, and `confirmStyle` — nullable `TextStyle` for full typography control.
 * Dark / light mode auto-detected from `Theme`, with optional `isDark` override.
 * Smooth bouncing scroll, live search by name / code / dial code.
 
