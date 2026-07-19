@@ -8,15 +8,27 @@ A Flutter package for **country selection** with a beautifully designed bottom s
 
 ---
 
+## Preview
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/light_green.jpg" height="400"/>
+  &nbsp;
+  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/dark_yellow.jpg" height="400"/>
+  &nbsp;
+  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/multiple_light.jpg" height="400"/>
+</p>
+
+---
+
 ## Features
 
 - 🏴 **SVG flag images** — bundled `res/si/` assets, 250+ countries, rendered via `jovial_svg`
-- 📋 **Country picker bottom sheet** — shape-configurable flags (circle, rectangle, rounded), live search, dark/light auto-theming
+- 📋 **Country picker bottom sheet** — single & multi-select modes, shape-configurable flags (circle, rectangle, rounded), live search, dark/light auto-theming
 - 🌐 **Auto-locale detection** — `country.name` reads the device locale automatically (`ar` / `en` / `tr`, fallback English)
 - 🔍 **Country helpers** — look up by code, dial code, or name; scalar getters for flag, dial, max-length
 - 🌍 **200+ countries** with AR / EN / TR names, ISO 3166-1 alpha-2 codes, dial codes, max phone length
 - 🚩 **Unicode emoji fallback** — `CountryFlagEmoji` widget if you prefer emoji over SVG
-- 🎨 **Full styling control** — accent color, title style, search hint style, flag shape, flag size
+- 🎨 **Full styling control** — customizable badge colors, primary color, title style, search hint style, flag shape, flag size
 
 
 ---
@@ -36,15 +48,20 @@ No extra setup required — SVG assets are bundled inside the package.
 
 ### 1. Country picker bottom sheet
 
+Use the unified `KhatebCountryPicker` class to show single or multi-select sheets.
+
+#### Single Pick
 ```dart
 import 'package:khateb_country_helper/khateb_country_helper.dart';
 
-final Country? picked = await showCountryBottomSheet(
+final Country? picked = await KhatebCountryPicker.show(
   context,
   currentCountry,                           // pre-selected Country
   flagShape: FlagShape.circle,              // circle | rectangle | rounded
   flagSize: 44,                             // you decide the size
   primaryColor: Colors.teal,
+  badgeColor: Colors.grey.shade200,         // badge bg color when unselected
+  badgeSelectedColor: Colors.teal.shade100, // badge bg color when selected
   title: 'اختر الدولة',
   titleStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
   searchHint: 'ابحث...',
@@ -57,6 +74,15 @@ if (picked != null) {
   print(picked.name);       // Auto-detected: السعودية / Saudi Arabia / Suudi Arabistan
   print(picked.code);       // SA
 }
+```
+
+#### Multi-select
+```dart
+final List<Country>? list = await KhatebCountryPicker.pickMultiple(
+  context,
+  initiallySelected: [currentCountry],      // List of pre-selected Countries
+  primaryColor: Colors.indigo,
+);
 ```
 
 ### 2. `country.name` — auto-locale, no context needed
@@ -178,15 +204,19 @@ sy.flagWithNameFor('en');   // 🇸🇾 Syria
 
 ## API Reference
 
-### `showCountryBottomSheet`
+### `KhatebCountryPicker`
 
+#### `KhatebCountryPicker.show` / `pickSingle`
 ```dart
-Future<Country?> showCountryBottomSheet(
+static Future<Country?> show(
   BuildContext context,
   Country currentCountry, {
   FlagShape flagShape = FlagShape.circle,
   double flagSize = 40,
   Color? primaryColor,
+  Color? badgeColor,
+  Color? badgeSelectedColor,
+  bool showCheckmark = true,
   bool? isDark,
   String? title,
   TextStyle? titleStyle,
@@ -195,18 +225,45 @@ Future<Country?> showCountryBottomSheet(
 })
 ```
 
+#### `KhatebCountryPicker.pickMultiple`
+```dart
+static Future<List<Country>?> pickMultiple(
+  BuildContext context, {
+  List<Country> initiallySelected = const [],
+  FlagShape flagShape = FlagShape.circle,
+  double flagSize = 40,
+  Color? primaryColor,
+  Color? badgeColor,
+  Color? badgeSelectedColor,
+  bool showCheckmark = true,
+  bool? isDark,
+  String? title,
+  TextStyle? titleStyle,
+  String? searchHint,
+  TextStyle? searchHintStyle,
+  String? confirmLabel,
+  TextStyle? confirmStyle,
+})
+```
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `context` | `BuildContext` | required | Context for the sheet |
-| `currentCountry` | `Country` | required | Pre-selected country |
 | `flagShape` | `FlagShape` | `circle` | `circle` / `rectangle` / `rounded` |
 | `flagSize` | `double` | `40` | Flag image width/height in dp |
 | `primaryColor` | `Color?` | theme primary | Accent color for selection |
+| `badgeColor` | `Color?` | theme surface | Dial code badge bg (unselected) |
+| `badgeSelectedColor` | `Color?` | primary alpha | Dial code badge bg (selected) |
+| `badgeTextColor` | `Color?` | theme subtle | Dial code badge text (unselected) |
+| `badgeSelectedTextColor` | `Color?` | theme primary | Dial code badge text (selected) |
+| `showCheckmark` | `bool` | `true` | Show trailing checkmark icon when selected |
 | `isDark` | `bool?` | auto | Override dark/light mode |
 | `title` | `String?` | auto | Sheet header text |
 | `titleStyle` | `TextStyle?` | null | Custom style for title |
 | `searchHint` | `String?` | auto | Search placeholder text |
 | `searchHintStyle` | `TextStyle?` | null | Custom style for search hint |
+| `confirmLabel` | `String?` | auto | (Multi-select) Confirm button text |
+| `confirmStyle` | `TextStyle?` | null | (Multi-select) Confirm text style |
 
 ### `CountryHelper` methods
 

@@ -1,14 +1,19 @@
 name: khateb_country_helper
 description: >-
-  A Flutter package for country selection with a beautiful bottom sheet,
-  multilingual support (Arabic, English, Turkish), SVG flag images, also you can
-  use this package as country flag helper and country code helper dial code and
-  phone number validate.
-version: 1.0.0
+  Flutter country picker with SVG flags, single & multi-select bottom sheet,
+  multilingual (AR/EN/TR), dial code lookup, and phone length validation.
+version: 1.0.2
 homepage: https://github.com/Mohammed-Khateb-github/khateb_country_helper
 repository: https://github.com/Mohammed-Khateb-github/khateb_country_helper
 issue_tracker: https://github.com/Mohammed-Khateb-github/khateb_country_helper/issues
 
+screenshots:
+  - description: 'Single Country Picker Light Green'
+    path: screenshots/light_green.jpg
+  - description: 'Single Country Picker Dark Yellow'
+    path: screenshots/dark_yellow.jpg
+  - description: 'Multi Country Picker Light'
+    path: screenshots/multiple_light.jpg
 environment:
   sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"
@@ -19,9 +24,9 @@ dependencies:
   jovial_svg: ^1.1.20
 
 dev_dependencies:
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
 
 flutter:
   assets:
