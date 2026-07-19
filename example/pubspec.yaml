@@ -1,0 +1,16 @@
+name: khateb_country_helper_example
+description: Example app for khateb_country_helper.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  khateb_country_helper:
+    path: ../
+
+flutter:
+  uses-material-design: true
