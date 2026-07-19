@@ -38,7 +38,7 @@ A Flutter package for **country selection** with a beautifully designed bottom s
 
 ```yaml
 dependencies:
-  khateb_country_helper: ^1.0.0
+  khateb_country_helper: ^1.0.4
 ```
 
 No extra setup required — SVG assets are bundled inside the package.
