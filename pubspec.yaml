@@ -2,7 +2,7 @@ name: khateb_country_helper
 description: >-
   Flutter country picker with SVG flags, single & multi-select bottom sheet,
   multilingual (AR/EN/TR), dial code lookup, and phone length validation.
-version: 1.0.2
+version: 1.0.4
 homepage: https://github.com/Mohammed-Khateb-github/khateb_country_helper
 repository: https://github.com/Mohammed-Khateb-github/khateb_country_helper
 issue_tracker: https://github.com/Mohammed-Khateb-github/khateb_country_helper/issues
@@ -10,6 +10,8 @@ issue_tracker: https://github.com/Mohammed-Khateb-github/khateb_country_helper/i
 screenshots:
   - description: 'Single Country Picker Light Green'
     path: screenshots/light_green.jpg
+  - description: 'Single Country Picker Light Yellow'
+    path: screenshots/light_yellow.jpg
   - description: 'Single Country Picker Dark Yellow'
     path: screenshots/dark_yellow.jpg
   - description: 'Multi Country Picker Light'

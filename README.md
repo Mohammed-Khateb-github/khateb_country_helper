@@ -8,15 +8,15 @@ A Flutter package for **country selection** with a beautifully designed bottom s
 
 ---
 
-## Preview
+## 📸 Screenshots
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/light_green.jpg" height="400"/>
-  &nbsp;
-  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/dark_yellow.jpg" height="400"/>
-  &nbsp;
-  <img src="https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/multiple_light.jpg" height="400"/>
-</p>
+| Light Green (Single) | Light Yellow (Single) | Dark Yellow (Single) |
+|:-:|:-:|:-:|
+| ![Light Green](https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/light_green.jpg) | ![Light Yellow](https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/light_yellow.jpg) | ![Dark Yellow](https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/dark_yellow.jpg) |
+
+| Multiple Selection (Light) |
+|:-:|
+| ![Multiple Light](https://raw.githubusercontent.com/Mohammed-Khateb-github/khateb_country_helper/main/screenshots/multiple_light.jpg) |
 
 ---
 
